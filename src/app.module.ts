@@ -6,6 +6,9 @@ import { UsersModule } from './users/users.module';
 import { CorsMiddleware } from './cors.middleware';
 import { AuthModule } from './auth/auth.module';
 import { AppService } from './app.service';
+import { ProductosModule } from './productos/productos.module';
+import { CategoriaModule } from './categoria/categoria.module';
+
 
 @Module({
   imports: [
@@ -21,6 +24,8 @@ import { AppService } from './app.service';
     }),
     UsersModule,
     AuthModule,
+    ProductosModule,
+    CategoriaModule,
   ],
   controllers: [AppController],
   providers: [AppService],
