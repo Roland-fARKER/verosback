@@ -20,7 +20,7 @@ export class CategoriaService {
     });
 
     if (existingProduct) {
-      throw new HttpException('Producto existente', HttpStatus.CONFLICT);
+      throw new HttpException('Categoria existente', HttpStatus.CONFLICT);
     }
 
     const New_Categoria = this.CategoriaRepositiry.create(CreateCategoriaDto);
@@ -48,7 +48,7 @@ export class CategoriaService {
   async remove(id: number) {
     const categoria = await this.CategoriaRepositiry.delete(id);
     if (!categoria) {
-      return new HttpException('familia no exisitente', HttpStatus.NOT_FOUND);
+      return new HttpException('Categoria no exisitente', HttpStatus.NOT_FOUND);
     }
     return categoria;
   }
