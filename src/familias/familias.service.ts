@@ -1,8 +1,13 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import {
+  HttpException,
+  HttpStatus,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { CreateFamiliaDto } from './dto/create-familia.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Familia } from './entities/familia.entity';
-import { Repository } from 'typeorm';
+import { FindOneOptions, Repository } from 'typeorm';
 import { UpdateFamiliaDto } from './dto/update-familia.dto';
 
 @Injectable()
@@ -35,5 +40,17 @@ export class FamiliasService {
   }
   async update(id: number, updateFamiliaDto: UpdateFamiliaDto) {
     return await this.FamiliaRepository.update(id, updateFamiliaDto);
+  }
+
+  async remove(id: number): Promise<void> {
+    const existingFamilia = await this.FamiliaRepository.findOne({
+      where: { id },
+    } as FindOneOptions<Familia>);
+
+    if (!existingFamilia) {
+      throw new NotFoundException(`Familia with ID ${id} not found`);
+    }
+
+    await this.FamiliaRepository.remove(existingFamilia);
   }
 }
