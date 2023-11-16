@@ -23,7 +23,7 @@ import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
 
 import { TokenHttpInterceptor } from './Interceptors/token.interceptor';
-import { StatusHttpInterceptor } from './Interceptors/status.interceptor';
+//import { StatusHttpInterceptor } from './Interceptors/status.interceptor';
 import { AuthenticationService } from './Services/authentication.service';
 
 
