@@ -17,6 +17,7 @@ import { ButtonModule } from 'primeng/button';
 import { MessagesModule } from 'primeng/messages';
 import { ToastModule } from 'primeng/toast';
 import { InputSwitchModule } from 'primeng/inputswitch';
+import { TableModule } from 'primeng/table';
 
 import { TokenHttpInterceptor } from './Interceptors/token.interceptor';
 import { StatusHttpInterceptor } from './Interceptors/status.interceptor';
@@ -30,6 +31,7 @@ import { DashboardComponent } from './View/dashboard/dashboard.component';
 import { MessageService } from 'primeng/api';
 import { LoaderComponent } from './loader/loader.component';
 import { CrearUsuariosComponent } from './View/Account/crear-usuarios/crear-usuarios.component';
+import { FamiliasComponent } from './View/Account/familias/familias.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { CrearUsuariosComponent } from './View/Account/crear-usuarios/crear-usua
     LoginComponent,
     DashboardComponent,
     LoaderComponent,
-    CrearUsuariosComponent
+    CrearUsuariosComponent,
+    FamiliasComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,8 @@ import { CrearUsuariosComponent } from './View/Account/crear-usuarios/crear-usua
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    InputSwitchModule
+    InputSwitchModule,
+    TableModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

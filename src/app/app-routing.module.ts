@@ -7,6 +7,7 @@ import { ButtonModule } from 'primeng/button';
 import { LoginComponent } from './View/Account/login/login.component';
 import { DashboardComponent } from './View/dashboard/dashboard.component';
 import { CrearUsuariosComponent } from './View/Account/crear-usuarios/crear-usuarios.component';
+import { FamiliasComponent } from './View/Account/familias/familias.component';
 
 //Guards
 import { AuthenticationGuard } from './Guards/authentication.guard';
@@ -20,13 +21,17 @@ const routes: Routes = [
   {
     path: 'Dashboard',
     component: DashboardComponent,
-    canActivate: [AuthenticationGuard],
+    //canActivate: [AuthenticationGuard],
     children: [
       {
         path: 'RegistrarUsuarios',
         component: CrearUsuariosComponent,
-        canActivate: [AuthenticationGuard],
+        //canActivate: [AuthenticationGuard],
       },
+      {
+        path: 'Familias',
+        component: FamiliasComponent,
+      }
     ],
   },
   {
