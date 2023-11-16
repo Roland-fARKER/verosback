@@ -1,11 +1,10 @@
-/* eslint-disable prettier/prettier */
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class Categoria {
+export class Familia {
   @PrimaryGeneratedColumn()
-  id_categoria: number;
+  id: number;
 
   @Column()
-  Nombre_Categoria: string;
+  Nombre_familia: string;
 }

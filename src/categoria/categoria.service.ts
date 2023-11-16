@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { CreateCategoriaDto } from './dto/create-categoria.dto';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -9,20 +10,19 @@ export class CategoriaService {
   constructor(
     @InjectRepository(Categoria)
     private CategoriaRepositiry: Repository<Categoria>,
-   
   ) {}
-  
+
   async create(CreateCategoriaDto: CreateCategoriaDto) {
     const existingProduct = await this.CategoriaRepositiry.findOne({
       where: {
-        Nombre_Categoria : CreateCategoriaDto.Nombre_Categoria,
+        Nombre_Categoria: CreateCategoriaDto.Nombre_Categoria,
       },
     });
-  
+
     if (existingProduct) {
       throw new HttpException('Categoria existente', HttpStatus.CONFLICT);
     }
-  
+
     const New_Categoria = this.CategoriaRepositiry.create(CreateCategoriaDto);
     await this.CategoriaRepositiry.save(New_Categoria);
   }
