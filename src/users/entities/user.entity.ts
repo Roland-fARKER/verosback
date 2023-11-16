@@ -22,3 +22,6 @@ export class User {
   @Column()
   admin: boolean
 }
+
+
+//me tiene echo verga angulatr
