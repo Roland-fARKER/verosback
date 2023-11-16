@@ -18,14 +18,21 @@ export class CatalogoController {
   
   @ApiOperation({ summary: 'Desarrollado por Josue Bermudez'})
   @Get('obtener')
-  findAll() {
-    return this.catalogoService.findAll();
+  async findAll() {
+    const catalogosConProductos = await this.catalogoService.findAllWithProductos();
+    return { catalogos: catalogosConProductos };
+  }
+  
+  @ApiOperation({ summary: 'Desarrollado por Josue Bermudez'})
+  @Patch('Actualizar/:id')
+  update(@Param('id') id: string, @Body() updateCatalogoDto: UpdateCatalogoDto) {
+    return this.catalogoService.update(+id, updateCatalogoDto);
   }
 
   
   @ApiOperation({ summary: 'Desarrollado por Josue Bermudez'})
-  @Get('obtener/:id')
-  findOne(@Param('Nombre_Catalogo') Nombre_Catalogo: string) {
-    return this.catalogoService.findOne(Nombre_Catalogo);
+  @Delete('Delete/:id')
+  remove(@Param('id') id: string) {
+    return this.catalogoService.remove(+id);
   }
 }

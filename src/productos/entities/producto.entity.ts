@@ -1,4 +1,4 @@
-
+import { Catalogo } from 'src/catalogo/entities/catalogo.entity';
 import{Entity , Column , PrimaryGeneratedColumn, JoinColumn, ManyToOne} from 'typeorm';
 
 @Entity()
@@ -27,6 +27,8 @@ export class productos
 
     @Column({type:'double'})
     Precio_Unitario:number
-
-
+  
+    @ManyToOne(() => Catalogo, catalogo => catalogo.productos)
+    @JoinColumn({ name: 'id_Catalogo' })
+    catalogo: Catalogo
 }

@@ -4,9 +4,11 @@ import { CatalogoController } from './catalogo.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Catalogo } from './entities/catalogo.entity';
 
+
 @Module({
   imports:[TypeOrmModule.forFeature([Catalogo])],
   controllers: [CatalogoController],
-  providers: [CatalogoService],
+  providers: [CatalogoService,],
+  exports:[CatalogoService]
 })
 export class CatalogoModule {}
