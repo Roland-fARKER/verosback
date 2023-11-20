@@ -1,5 +1,5 @@
-import { Catalogo } from 'src/catalogo/entities/catalogo.entity';
-import{Entity , Column , PrimaryGeneratedColumn, JoinColumn, ManyToOne} from 'typeorm';
+import { Almacene } from 'src/almacenes/entities/almacene.entity';
+import{Entity , Column , PrimaryGeneratedColumn, JoinColumn, ManyToOne, ManyToMany, JoinTable} from 'typeorm';
 
 @Entity()
 export class productos
@@ -27,8 +27,19 @@ export class productos
 
     @Column({type:'double'})
     Precio_Unitario:number
+
+    @ManyToMany(() => Almacene, almacene => almacene.productos)
+    @JoinTable({
+      name: 'producto_almacene',
+      joinColumn: {
+        name: 'producto_id',
+        referencedColumnName: 'id_producto',
+      },
+      inverseJoinColumn: {
+        name: 'almacene_id',
+        referencedColumnName: 'id',
+      },
+    })
+    almacenes: Almacene[];
   
-    @ManyToOne(() => Catalogo, catalogo => catalogo.productos)
-    @JoinColumn({ name: 'id_Catalogo' })
-    catalogo: Catalogo
 }

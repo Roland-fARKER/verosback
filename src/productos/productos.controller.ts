@@ -10,31 +10,31 @@ export class ProductosController {
   constructor(private readonly productosService: ProductosService) {}
 
   @ApiOperation({ summary: 'Desarrollado por Josue Bermudez'})
-  @Post()
+  @Post('Enviar')
   create(@Body() createProductoDto: CreateProductoDto) {
     return this.productosService.create(createProductoDto);
   }
 
   @ApiOperation({ summary: 'Desarrollado por Josue Bermudez'})
-  @Get()
+  @Get('Obtener')
   findAll() {
     return this.productosService.findAll();
   }
 
   @ApiOperation({ summary: 'Desarrollado por Josue Bermudez'})
-  @Get(':Nombre_Producto')
+  @Get('obtener/:Nombre_Producto')
   findOne(@Param('Nombre_Producto') Nombre_Producto: string) {
     return this.productosService.findOne(Nombre_Producto);
   }
 
   @ApiOperation({ summary: 'Desarrollado por Josue Bermudez'})
-  @Patch(':id')
+  @Patch('actualizar/:id')
   update(@Param('id',ParseIntPipe) id: number, @Body() updateProductoDto: UpdateProductoDto) {
     return this.productosService.update(+id, updateProductoDto);
   }
  
   @ApiOperation({ summary: 'Desarrollado por Josue Bermudez'})
-  @Delete(':id')
+  @Delete('Delete/:id')
   remove(@Param('id') id: string) {
     return this.productosService.remove(+id);
   }

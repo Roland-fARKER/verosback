@@ -9,7 +9,8 @@ import { AppService } from './app.service';
 import { ProductosModule } from './productos/productos.module';
 import { CategoriaModule } from './categoria/categoria.module';
 import { FamiliasModule } from './familias/familias.module';
-import { CatalogoModule } from './catalogo/catalogo.module';
+import { ProveedoresModule } from './proveedores/proveedores.module';
+import { AlmacenesModule } from './almacenes/almacenes.module';
 
 
 @Module({
@@ -28,8 +29,9 @@ import { CatalogoModule } from './catalogo/catalogo.module';
     AuthModule,
     ProductosModule,
     CategoriaModule,
-    CatalogoModule,
-    FamiliasModule
+    FamiliasModule,
+    ProveedoresModule,
+    AlmacenesModule
   ],
   controllers: [AppController],
   providers: [AppService],
