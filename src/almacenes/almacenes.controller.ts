@@ -21,16 +21,19 @@ export class AlmacenesController {
     return this.almacenesService.findAll();
   }
 
+  @ApiOperation({summary:'Desarrollado por Josué Bermúdez'})
   @Get('Obtener/:id')
   findOne(@Param('id') id: string) {
     return this.almacenesService.findOne(+id);
   }
 
+  @ApiOperation({summary:'Desarrollado por Josué Bermúdez'})
   @Patch('Actualizar/:id')
   update(@Param('id') id: string, @Body() updateAlmaceneDto: UpdateAlmaceneDto) {
     return this.almacenesService.update(+id, updateAlmaceneDto);
   }
 
+  @ApiOperation({summary:'Desarrollado por Josué Bermúdez'})
   @Delete('Eliminar/:id')
   remove(@Param('id') id: string) {
     return this.almacenesService.remove(+id);
