@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { CreateProductoDto } from './dto/create-producto.dto';
 import { UpdateProductoDto } from './dto/update-producto.dto';
@@ -7,8 +8,10 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class ProductosService {
-
-  constructor(@InjectRepository(productos) private productRepository: Repository<productos>) { }
+  constructor(
+    @InjectRepository(productos)
+    private productRepository: Repository<productos>,
+  ) {}
 
   async create(productos: CreateProductoDto) {
     const existingProduct = await this.productRepository.findOne({
@@ -25,16 +28,13 @@ export class ProductosService {
     await this.productRepository.save(newProduct);
   }
 
-
   findAll() {
     return this.productRepository.find();
   }
 
   async findOne(Nombre_Producto: string) {
-
     const product = await this.productRepository.findOne({
-      where:
-      {
+      where: {
         Nombre_Producto,
       },
     });
@@ -46,13 +46,11 @@ export class ProductosService {
   }
 
   async update(id: number, updateProductoDto: UpdateProductoDto) {
-    const Product = await this.productRepository.findOne(
-      {
-        where:
-        {
-          id_producto: id,
-        },
-      });
+    const Product = await this.productRepository.findOne({
+      where: {
+        id_producto: id,
+      },
+    });
 
     if (!Product) {
       return new HttpException('producto no exisitente', HttpStatus.NOT_FOUND);

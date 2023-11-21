@@ -1,19 +1,17 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+/* eslint-disable prettier/prettier */
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class Proveedore 
-{
-    @PrimaryGeneratedColumn()
-    id_Proveedor:number;
+export class Proveedore {
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column({type:'varchar'})
-    Nombre_Proveedor:string;
+  @Column({ type: 'varchar' })
+  nombre: string;
 
-    @Column({type:'bool'})
-    Estado:boolean;
+  @Column({ type: 'bool' })
+  estado: boolean;
 
-    @Column({type:'int'})
-    Num_Telefono:number;
-
-    
+  @Column({ type: 'int' })
+  telefono: number;
 }

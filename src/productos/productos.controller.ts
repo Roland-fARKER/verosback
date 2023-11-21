@@ -1,4 +1,14 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, ParseIntPipe } from '@nestjs/common';
+/* eslint-disable prettier/prettier */
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  ParseIntPipe,
+} from '@nestjs/common';
 import { ProductosService } from './productos.service';
 import { CreateProductoDto } from './dto/create-producto.dto';
 import { UpdateProductoDto } from './dto/update-producto.dto';
@@ -9,31 +19,34 @@ import { ApiOperation, ApiTags } from '@nestjs/swagger';
 export class ProductosController {
   constructor(private readonly productosService: ProductosService) {}
 
-  @ApiOperation({ summary: 'Desarrollado por Josue Bermudez'})
+  @ApiOperation({ summary: 'Desarrollado por Josue Bermudez' })
   @Post('Enviar')
   create(@Body() createProductoDto: CreateProductoDto) {
     return this.productosService.create(createProductoDto);
   }
 
-  @ApiOperation({ summary: 'Desarrollado por Josue Bermudez'})
+  @ApiOperation({ summary: 'Desarrollado por Josue Bermudez' })
   @Get('Obtener')
   findAll() {
     return this.productosService.findAll();
   }
 
-  @ApiOperation({ summary: 'Desarrollado por Josue Bermudez'})
+  @ApiOperation({ summary: 'Desarrollado por Josue Bermudez' })
   @Get('obtener/:Nombre_Producto')
   findOne(@Param('Nombre_Producto') Nombre_Producto: string) {
     return this.productosService.findOne(Nombre_Producto);
   }
 
-  @ApiOperation({ summary: 'Desarrollado por Josue Bermudez'})
+  @ApiOperation({ summary: 'Desarrollado por Josue Bermudez' })
   @Patch('actualizar/:id')
-  update(@Param('id',ParseIntPipe) id: number, @Body() updateProductoDto: UpdateProductoDto) {
+  update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateProductoDto: UpdateProductoDto,
+  ) {
     return this.productosService.update(+id, updateProductoDto);
   }
- 
-  @ApiOperation({ summary: 'Desarrollado por Josue Bermudez'})
+
+  @ApiOperation({ summary: 'Desarrollado por Josue Bermudez' })
   @Delete('Delete/:id')
   remove(@Param('id') id: string) {
     return this.productosService.remove(+id);
