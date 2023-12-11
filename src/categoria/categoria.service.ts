@@ -4,6 +4,7 @@ import { CreateCategoriaDto } from './dto/create-categoria.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Categoria } from './entities/categoria.entity';
+import { UpdateCategoriaDto } from './dto/update-categoria.dto';
 
 @Injectable()
 export class CategoriaService {
@@ -43,6 +44,22 @@ export class CategoriaService {
     }
 
     return categoria;
+  }
+
+   
+  async update(id: number, updateProduct:UpdateCategoriaDto ) {
+    const Product = await this.CategoriaRepositiry.findOne({
+      where: {
+        id_categoria: id,
+      },
+    });
+
+    if (!Product) {
+      return new HttpException('Categoria no exisitente', HttpStatus.NOT_FOUND);
+    }
+
+    const NewupdateProduct = Object.assign(Product, updateProduct);
+    return this.CategoriaRepositiry.save(NewupdateProduct);
   }
 
   async remove(id: number) {

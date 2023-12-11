@@ -6,10 +6,12 @@ import {
   Body,
   Param,
   Delete,
+  Patch,
 } from '@nestjs/common';
 import { CategoriaService } from './categoria.service';
 import { CreateCategoriaDto } from './dto/create-categoria.dto';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { UpdateCategoriaDto } from './dto/update-categoria.dto';
 
 @ApiTags('Categorias')
 @Controller('categoria')
@@ -33,6 +35,16 @@ export class CategoriaController {
   findOne(@Param('Nombre_Categoria') Nombre_categoria: string) {
     return this.categoriaService.findOne(Nombre_categoria);
   }
+
+  @ApiOperation({ summary: 'Desarrollado por Josue Bermudez' })
+  @Patch('actualizar/:id')
+  update(
+    @Param('id') id: number,
+    @Body() updateDto: UpdateCategoriaDto,
+  ) {
+    return this.categoriaService.update(+id, updateDto);
+  }
+
 
   @ApiOperation({ summary: 'Desarrollado por Josue Bermudez' })
   @Delete('Delete/:id')

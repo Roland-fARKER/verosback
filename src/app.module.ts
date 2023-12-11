@@ -17,11 +17,11 @@ import { AlmacenesModule } from './almacenes/almacenes.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'bubgq0dtg2rvtoxnynux-mysql.services.clever-cloud.com',
+      host: 'b9zjo8z6javb3dnhow3z-mysql.services.clever-cloud.com',
       port: 3306,
-      username: 'uonuqe7tcadw8qpe',
-      password: 'MSzqKYQIdI4KGYF33ALX',
-      database: 'bubgq0dtg2rvtoxnynux',
+      username: 'u21glvtikjjfmvpx',
+      password: 'FWV2mT74j6zgPnEVHy5G',
+      database: 'b9zjo8z6javb3dnhow3z',
       autoLoadEntities: true,
       synchronize: true,
     }),
