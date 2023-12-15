@@ -74,7 +74,7 @@ async findAll() {
       return new HttpException('almacen no exisitente', HttpStatus.NOT_FOUND);
     }
 
-    const updateAlmacen = Object.assign(almacen, UpdateAlmaceneDto);
+    const updateAlmacen = Object.assign( updateAlmaceneDto, UpdateAlmaceneDto);
     return this.AlmaceneRepository.save(updateAlmacen);
   }
 
