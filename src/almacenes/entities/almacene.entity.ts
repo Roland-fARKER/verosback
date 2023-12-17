@@ -1,19 +1,13 @@
 import { productos } from 'src/productos/entities/producto.entity';
-import {
-    Column,
-    Entity,
-    JoinTable,
-    ManyToMany,
-    PrimaryGeneratedColumn,
-} from 'typeorm';
+import {Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn} from 'typeorm';
 
 @Entity()
 export class Almacene {
-    @PrimaryGeneratedColumn()
-    id: number;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column({ type: 'varchar' })
-    nombre: String;
+  @Column()
+  nombre: string;
 
     @ManyToMany(() => productos, (productos) => productos.almacenes)
     @JoinTable({

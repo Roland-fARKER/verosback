@@ -5,5 +5,5 @@ export class CreateAlmaceneDto
 {
     @ApiProperty()
     @IsString()
-    nombre: String;
+    nombre: string;
 }

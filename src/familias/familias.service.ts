@@ -1,9 +1,4 @@
-import {
-  HttpException,
-  HttpStatus,
-  Injectable,
-  NotFoundException,
-} from '@nestjs/common';
+import {HttpException, HttpStatus, Injectable, NotFoundException} from '@nestjs/common';
 import { CreateFamiliaDto } from './dto/create-familia.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Familia } from './entities/familia.entity';

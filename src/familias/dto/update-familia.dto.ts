@@ -7,3 +7,4 @@ export class UpdateFamiliaDto extends PartialType(CreateFamiliaDto) {
   @IsString()
   Nombre_familia: string;
 }
+

@@ -1,22 +1,22 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { AlmacenesService } from './almacenes.service';
+import { AlmaceneService } from './almacenes.service';
 import { CreateAlmaceneDto } from './dto/create-almacene.dto';
 import { UpdateAlmaceneDto } from './dto/update-almacene.dto';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
-@ApiTags('Almacenes')
+@ApiTags('Almacene')
 @Controller('almacenes')
-export class AlmacenesController {
-  constructor(private readonly almacenesService: AlmacenesService) {}
+export class AlmaceneController {
+  constructor(private readonly almacenesService: AlmaceneService) {}
 
   @ApiOperation({summary:'Desarrollado por Josué Bermúdez'})
-  @Post('Crear')
+  @Post('Enviar')
   create(@Body() createAlmaceneDto: CreateAlmaceneDto) {
     return this.almacenesService.create(createAlmaceneDto);
   }
 
   @ApiOperation({summary:'Desarrollado por Josué Bermúdez'})
-  @Get('obtener')
+  @Get('Obtener')
   findAll() {
     return this.almacenesService.findAll();
   }
@@ -29,13 +29,13 @@ export class AlmacenesController {
 
   @ApiOperation({summary:'Desarrollado por Josué Bermúdez'})
   @Patch('Actualizar/:id')
-  update(@Param('id') id: string, @Body() updateAlmaceneDto: UpdateAlmaceneDto) {
-    return this.almacenesService.update(+id, updateAlmaceneDto);
+  update(@Param('id') id: number, @Body() updateAlmaceneDto: UpdateAlmaceneDto) {
+    return this.almacenesService.update(id, updateAlmaceneDto);
   }
 
   @ApiOperation({summary:'Desarrollado por Josué Bermúdez'})
   @Delete('Eliminar/:id')
-  remove(@Param('id') id: string) {
-    return this.almacenesService.remove(+id);
+  remove(@Param('id') id: number) {
+    return this.almacenesService.remove(id);
   }
 }

@@ -10,7 +10,7 @@ import { ProductosModule } from './productos/productos.module';
 import { CategoriaModule } from './categoria/categoria.module';
 import { FamiliasModule } from './familias/familias.module';
 import { ProveedoresModule } from './proveedores/proveedores.module';
-import { AlmacenesModule } from './almacenes/almacenes.module';
+import { AlmaceneModule } from './almacenes/almacenes.module';
 
 
 @Module({
@@ -31,7 +31,7 @@ import { AlmacenesModule } from './almacenes/almacenes.module';
     CategoriaModule,
     FamiliasModule,
     ProveedoresModule,
-    AlmacenesModule
+    AlmaceneModule
   ],
   controllers: [AppController],
   providers: [AppService],
