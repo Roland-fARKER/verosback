@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import {HttpException, HttpStatus, Injectable, NotFoundException} from '@nestjs/common';
 import { CreateAlmaceneDto } from './dto/create-almacene.dto';
 import { InjectRepository } from '@nestjs/typeorm';

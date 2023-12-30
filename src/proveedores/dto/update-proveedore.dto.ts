@@ -4,7 +4,7 @@ import { CreateProveedoreDto } from './create-proveedore.dto';
 
 export class UpdateProveedoreDto extends PartialType(CreateProveedoreDto) 
 {
-    nombre:string;
-    telefono:number;
+    nombre?:string;
+    telefono?:number;
     estado?: boolean;
 }
