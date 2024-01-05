@@ -30,4 +30,16 @@ export class CreateProductoDto {
   @ApiProperty()
   @IsNumber()
   Precio_Unitario: number;
+
+  @ApiProperty()
+  @IsNumber()
+  Id_Categoria: number;
+
+  @ApiProperty()
+  @IsNumber()
+  Id_Familia: number;
+
+  @ApiProperty()
+  @IsNumber()
+  Id_Proveedor: number;
 }

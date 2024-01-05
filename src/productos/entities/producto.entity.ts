@@ -36,6 +36,15 @@ export class productos {
   @Column({ type: 'double' })
   Precio_Unitario: number;
 
+  @Column({ type: 'double' })
+  Id_Categoria: number;
+
+  @Column({ type: 'double' })
+  Id_Familia: number;
+
+  @Column({ type: 'double' })
+  Id_Proveedor: number;
+
   @ManyToMany(() => Almacene, (almacene) => almacene.productos)
   @JoinTable({
     name: 'producto_almacene',
