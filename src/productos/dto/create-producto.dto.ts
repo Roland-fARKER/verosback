@@ -12,24 +12,12 @@ export class CreateProductoDto {
   Descripcion: string;
 
   @ApiProperty()
-  @IsBoolean()
-  Estado: boolean;
-
-  @ApiProperty()
-  @IsNumber()
-  Stock: number;
-
-  @ApiProperty()
   @IsNumber()
   Precio_Compra: number;
 
   @ApiProperty()
   @IsNumber()
   Precio_venta: number;
-
-  @ApiProperty()
-  @IsNumber()
-  Precio_Unitario: number;
 
   @ApiProperty()
   @IsNumber()

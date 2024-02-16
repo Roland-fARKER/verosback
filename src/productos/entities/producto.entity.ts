@@ -21,20 +21,11 @@ export class productos {
   @Column()
   Descripcion: string;
 
-  @Column({ type: 'bool' })
-  Estado: boolean;
-
-  @Column({ type: 'int' })
-  Stock: number;
-
   @Column({ type: 'double' })
   Precio_Compra: number;
 
   @Column({ type: 'double' })
   Precio_venta: number;
-
-  @Column({ type: 'double' })
-  Precio_Unitario: number;
 
   @Column({ type: 'double' })
   Id_Categoria: number;
