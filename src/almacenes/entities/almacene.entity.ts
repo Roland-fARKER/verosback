@@ -1,4 +1,5 @@
 import { productos } from 'src/productos/entities/producto.entity';
+import { catalogo } from 'src/catalogo/entities/catalogo.entity';
 import {Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn} from 'typeorm';
 
 @Entity()
@@ -22,4 +23,18 @@ export class Almacene {
       },
     })
     productos: productos[];
+
+    @ManyToMany(() => catalogo, (catalogo) => catalogo.almacenes)
+    @JoinTable({
+      name: 'Almacene_catalogo',
+      joinColumn: {
+        name: 'almacene_id',
+        referencedColumnName: 'id',
+      },
+      inverseJoinColumn: {
+        name: 'catalogo_id',
+        referencedColumnName: 'id_catalogo',
+      },
+    })
+    catalogo: catalogo[];
 }

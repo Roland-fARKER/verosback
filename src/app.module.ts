@@ -11,6 +11,7 @@ import { CategoriaModule } from './categoria/categoria.module';
 import { FamiliasModule } from './familias/familias.module';
 import { ProveedoresModule } from './proveedores/proveedores.module';
 import { AlmaceneModule } from './almacenes/almacenes.module';
+import { CatalogoModule } from './catalogo/catalogo.module';
 
 
 @Module({
@@ -31,7 +32,8 @@ import { AlmaceneModule } from './almacenes/almacenes.module';
     CategoriaModule,
     FamiliasModule,
     ProveedoresModule,
-    AlmaceneModule
+    AlmaceneModule,
+    CatalogoModule
   ],
   controllers: [AppController],
   providers: [AppService],
